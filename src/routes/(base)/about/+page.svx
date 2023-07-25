@@ -1,0 +1,34 @@
+<svelte:head>
+	<title>About - Voidlink</title>
+</svelte:head>
+
+<script context='module'>
+	import {AUTHOR, ROLE} from '$lib/siteConfig.js';
+</script>
+
+<script>
+	import profile from '$lib/img/featured/about.png';
+</script>
+
+
+<section class="text-gray-600 dark:text-zinc-400 body-font ">
+  <div class="container mx-auto flex px-5 py-24 items-center justify-center flex-col flex min-h-screen">
+    <div class="text-center  w-full m-auto">
+      <img alt="logo" src={profile}>
+      <h1 class="text-5xl font-bold tracking-tight text-black dark:text-white md:text-5xl  items-center ">Hey there, I am {AUTHOR}</h1>
+      <p class="leading-relaxed text-lg  p-4">And I am a tech enthusiast, creator, and amateur blogger who loves everything geeky. From anime to videogames, I'm always up for trying out the latest gadgets and software. Whenever I'm not tinkering with my computers or playing video games, you can find me sipping a cup of coffee (or two, maybe three). If you happen to love geeky stuff, coffee, and laughter then you just might be in the right place! Stick around theres plenty of shenanigans to come.</p>
+      <span class="inline-block h-1 w-10 rounded  mt-8 mb-6"></span>
+      <p class="title-font tracking-wider text-sm font-bold">All of the disadvantages in this world stems from a person’s lack of ability</p>
+      <p>Rize Kamishiro</p>
+    </div>
+  </div>
+</section>
+
+<style>
+    img {
+        height: 25vh;
+        border-style: none;
+        border-width: 0px
+    }
+</style>
+
