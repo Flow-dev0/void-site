@@ -3,6 +3,7 @@
 	import dayjs from 'dayjs';
 
 	export let data;
+	
 	let { items } = data;
 
 	let inputEl;
@@ -80,15 +81,19 @@
 	{#if list.length}
 		<ul id="skip" class="w-full">
 			{#each list as item}
-				<li class="mb-8 text-lg">
-					<IndexCard
-						href={`/blog/${item.slug}`}
-						title={item.title}
-						stringData={dayjs(item.date).toISOString().slice(0, 10)}
-					>
-						{item.description}
-					</IndexCard>
-				</li>
+			{#if item.draft == "false"}
+			<li class="mb-8 text-lg">
+				<IndexCard
+					href={`/blog/${item.slug}`}
+					title={item.title}
+					stringData={dayjs(item.date).toISOString().slice(0, 10)}
+				>
+					{item.description}
+				</IndexCard>
+			</li>
+			{/if}
+			
+				
 			{/each}
 		</ul>
 		{#if isTruncated}

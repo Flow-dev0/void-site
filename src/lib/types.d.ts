@@ -14,6 +14,7 @@ export type ContentItem = {
 	slug: string;
 	date: Date;
 	ghMetadata: GHMetadata;
+	draft: string;
 };
 
 export type GHMetadata = {

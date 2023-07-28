@@ -9,13 +9,16 @@
 		MY_TWITTER_HANDLE,
 		SITE_DESCRIPTION,
 		SITE_TITLE,
-		SITE_URL
+		SITE_URL,
+		DEFAULT_DRAFT_STATUS,
 	} from '$lib/siteConfig';
 	import FeatureCard from '$lib/components/FeatureCard.svelte';
 	import BaseLayout from '$lib/BaseLayout.svelte';
+  	import OdyseePlayer from '$lib/components/Odysee-player.svelte';
 
 	export let data;
 	let { items } = data;
+	items.draft = {DEFAULT_DRAFT_STATUS}
 </script>
 
 <svelte:head>
@@ -100,7 +103,7 @@
 		<!-- section end -->
 	</div>
 	<div
-		class="mx-auto flex max-w-6xl flex-col items-start justify-center border-zinc-200 px-4 pb-2 dark:border-zinc-700 sm:px-8"
+		class=" sm:mx-0 md:mx-auto flex max-w-6xl flex-col items-start justify-center border-zinc-200 px-4 pb-2 dark:border-zinc-700 sm:px-8"
 	>
 		<div class="mb-8 flex flex-col-reverse items-start sm:flex-row" />
 
@@ -111,7 +114,9 @@
 			<div class="flex flex-col gap-6 md:flex-row">
 				{#each items as item, i}
 					{#if i < 3}
-						<FeatureCard title={item.title} href={`/blog/${item.slug}`} stringData={item.date} />
+					{#if item.draft == "false"}
+					<FeatureCard title={item.title} href={`/blog/${item.slug}`} stringData={item.date} />
+					{/if}
 					{/if}
 				{/each}
 			</div>
@@ -135,5 +140,8 @@
 				</svg>
 			</a>
 		</section>
+	
+	<OdyseePlayer></OdyseePlayer>
+
 	</div>
 </BaseLayout>
