@@ -1,5 +1,4 @@
 <script context="module">
-	export const prerender = true; // index page is most visited, lets prerender
 </script>
 
 <script>
