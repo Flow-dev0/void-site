@@ -1,4 +1,7 @@
+
 <script>
+	import { MY_ODYSEE } from '$lib/siteConfig.js';
+
 	let isOpen = false;
 	let isMenuRendered;
 	$: {
@@ -65,44 +68,63 @@
 	</button>
 	{#if isOpen}
 		<ul
-			class="menu absolute flex flex-col rounded-md bg-zinc-100  text-2xl uppercase dark:bg-gradient-to-br dark:from-zinc-800 dark:to-zinc-900 "
+			class="menu absolute flex flex-col  rounded-md  text-2xl bg-gradient-to-br from-sky-500 to-sky-500 "
 			class:menuRendered={isMenuRendered}
 		>
+		<div class="pb-4"></div>
 			<li
-				class="border-b border-zinc-300 p-5 font-semibold text-zinc-900 dark:border-zinc-700 dark:text-zinc-100"
+				class=" border-zinc-300 p-5 font-semibold text-zinc-900 dark:border-zinc-700 dark:text-zinc-100 hover:bg-zinc-900 hover:rounded "
 				style="transition-delay: 150ms;"
 			>
 				<a
-					class="flex w-auto pb-4"
+					class="flex w-auto justify-center"
 					data-sveltekit-prefetch
 					on:click={() => setTimeout(() => (isOpen = false), 300)}
-					href="/">Home</a
+					href="/"><p class="text-white">Home</p></a
 				>
 			</li>
 			<li
-				class="border-b border-zinc-300 p-5 font-semibold text-zinc-900 dark:border-zinc-700 dark:text-zinc-100"
+				class=" border-zinc-300 p-5 font-semibold text-zinc-900 dark:border-zinc-700 dark:text-zinc-100 hover:bg-zinc-900 hover:rounded"
 				style="transition-delay: 250ms;"
 			>
 				<a
-					class="flex w-auto pb-4"
+					class="flex w-auto justify-center"
 					data-sveltekit-prefetch
 					on:click={() => setTimeout(() => (isOpen = false), 300)}
-					href="/blog">Blog</a
+					href="/blog"><p class="text-white">Blog</p></a
 				>
 			</li>
 			<li
-				class="border-b border-zinc-300 p-5 font-semibold text-zinc-900 dark:border-zinc-700 dark:text-zinc-100"
+				class=" border-zinc-300 p-5 font-semibold text-zinc-900 dark:border-zinc-700 dark:text-zinc-100 hover:bg-zinc-900 hover:rounded"
 				style="transition-delay: 350ms;"
 			>
 				<a
-					class="flex w-auto pb-4"
+					class="flex w-auto justify-center"
 					data-sveltekit-prefetch
 					on:click={() => setTimeout(() => (isOpen = false), 300)}
-					href="/about">About me</a
+					href="/about"><p class="text-white">About</p></a
 				>
 			</li>
+			<div class="border-solid border-b-2 w-2/3 m-auto pt-4" ></div>
+			<div class="flex flex-col items-center justify-between gap-2 rounded-md  p-6 py-6 md:flex-row">
+			<div class="mb-3 text-center md:mb-0 md:text-left ">
+				<span class="font-bold  text-white text-md">"Hey listen"</span>
+				<p class="text-white text-sm pt-1">
+					Follow me on <span class="font-bold ">odysee</span> for an even less useful tech
+					stuff... <span class="font-bold "></span>
+				</p>
+			</div>
+			<a
+				href={MY_ODYSEE}
+				class="inline-block rounded bg-white px-8 py-2 text-center text-sm font-semibold text-gray-700 outline-none transition  duration-100 hover:no-underline hover:shadow focus-visible:ring  active:shadow  md:text-base"
+			>
+				<p class="text-black ">Subscribe</p>
+			</a>
+		</div>
 		</ul>
+		
 	{/if}
+	
 </div>
 
 <style lang="postcss">
@@ -124,11 +146,11 @@
 	}
 
 	.menu {
-		padding: 0 28px 0 4px;
-		margin: 0;
-		padding-top: 24px;
+		padding: 0 0px 0 0px;
+		margin-top: 25px;
+		padding-top: 0px;
 		width: 100%;
-		height: 100vh;
+		height: auto;
 		z-index: 1000;
 		opacity: 0;
 		left: 0;
@@ -151,11 +173,9 @@
 		@apply w-full border-zinc-200 dark:border-zinc-600;
 		transform: translateX(0);
 		opacity: 1;
+		text-align: center;
 	}
 
-	.menu > * + * {
-		margin-top: 24px;
-	}
 
 	@keyframes grow {
 		0% {

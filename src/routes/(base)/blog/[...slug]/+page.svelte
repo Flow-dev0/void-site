@@ -33,17 +33,17 @@
 </svelte:head>
 
 <article id="skip">
-	<div class="p-5 mx-auto sm:p-10 md:p-16 ">
+	<div class="p-5 mx-auto sm:p-10 md:p-16">
 		<div class="flex flex-col max-w-4xl mx-auto overflow-hidden ">
-			<img src="{metadata.feature}" alt="" class="w-full h-60 sm:h-96">
-			<div class="p-4 m-4 mx-auto -mt-16 space-y-6  sm:px-10 sm:mx-12  bg-sky-500">
+			<img src="{metadata.feature}" alt="" class="max-h-72 sm:h-96">
+			<div class="py-4 m-4 mx-auto -mt-1 space-y-6  sm:px-10 w-full bg-sky-500 ">
 				<div class="flex">
-					<div class="image w-1/3 m-auto scale-75">
-						<img alt="logo" class="object-contain" src="{profile}">
+					<div class="image max-w-[185px]  scale-75">
+						<img alt="logo" class="object-contain max-w-[185px]" src="{profile}">
 					</div>
 					<div class="flex">
 						<div class="space-y-2 w-full pl-5 m-auto">
-							<h1 class="inline-block text-2xl font-semibold sm:text-3xl text-white">{metadata.title}</h1>
+							<h1 class="inline-block text-2xl font-semibold sm:text-3xl text-white w-full pr-2">{metadata.title}</h1>
 							<div>
 								<div>
 									<p class="text-xs text-zinc-100">By Voidlink
