@@ -3,6 +3,7 @@
 	import dayjs from 'dayjs';
 	import { DEFAULT_OG_IMAGE } from '$lib/siteConfig';
 	import { page } from '$app/stores';
+	import profile from '$lib/img/featured/about.png';
 
 	/** @type {import('$lib/types.d.ts').ContentItem} */
 	export let data;
@@ -10,8 +11,7 @@
 </script>
 
 <svelte:head>
-	<title>{metadata.title} - note - luciano@ratamero.com</title>
-
+	<title>{metadata.title} - note - Voidlink</title>
 	<link rel="canonical" href={$page.url} />
 	<meta property="og:url" content={$page.url} />
 	<meta property="og:type" content="article" />
@@ -31,27 +31,38 @@
 	{/if}
 </svelte:head>
 
-<article
-	id="skip"
-	class="mx-auto mb-8 flex w-full max-w-3xl flex-col items-start justify-center sm:px-8"
->
-	<h1 class="mb-8 text-3xl font-bold tracking-tight text-black dark:text-white md:text-5xl ">
-		{metadata.title}
-	</h1>
-	<div
-		class="bg mt-2 flex w-full justify-between sm:flex-col sm:items-start md:flex-row md:items-center"
-	>
-		<p class="flex items-center text-sm text-zinc-700 dark:text-zinc-300">Voidlink</p>
-		<p class="min-w-32 flex items-center text-sm text-zinc-600 dark:text-zinc-400 md:mt-0">
-			{dayjs(metadata.date).toISOString().slice(0, 10)}
-		</p>
+<article id="skip">
+	<div class="p-5 mx-auto sm:p-10 md:p-16">
+		<div class="flex flex-col max-w-4xl mx-auto overflow-hidden ">
+			<div class="py-4 m-4 mx-auto -mt-1 space-y-6  sm:px-10 w-full bg-sky-500 ">
+				<div class="flex">
+					<div class="image max-w-[185px]  scale-75">
+						<img alt="logo" class="object-contain max-w-[185px]" src="{profile}">
+					</div>
+					<div class="flex">
+						<div class="space-y-2 w-full pl-5 m-auto">
+							<h1 class="inline-block text-2xl font-semibold sm:text-3xl text-white w-full pr-2">{metadata.title}</h1>
+							<div>
+								<div>
+									<p class="text-xs text-zinc-100">By Voidlink
+									</p>
+								</div>
+								<div>
+									<p class="min-w-32 flex items-center text-sm  text-zinc-100 md:mt-0">
+										{dayjs(metadata.date).toISOString().slice(0, 10)}
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					
+				</div>
+				
+				
+			</div>
+			<div class="prose mt-6 w-full max-w-none dark:prose-invert p-2 md:p-4 lg:p-6">
+				{@html content}
+			</div>
+		</div>
 	</div>
-	<div
-		class="my-2 flex h-1 w-full bg-gradient-to-r from-cyan-400 via-sky-500 to-pink-500 sm:mx-0"
-	/>
-
-	<div class="prose mt-12 w-full max-w-none dark:prose-invert">
-		{@html content}
-	</div>
-
 </article>
