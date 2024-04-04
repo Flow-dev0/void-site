@@ -53,7 +53,7 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"@sveltejs/kit": "^1.30.3",
+		"@sveltejs/kit": "^1.30.4",
 		"dayjs": "^1.11.9",
 		"js-yaml": "^4.1.0",
 		"lodash": "^4.17.21",
